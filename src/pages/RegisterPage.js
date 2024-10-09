@@ -18,7 +18,7 @@ const RegisterPage = () => {
         throw new Error("비밀번호가 일치하지 않습니다! 다시 입력해주세요!");
       }
       const response = await api.post("/user", { name, email, password });
-      console.log("response: ", response);
+      console.log("myRResponse: ", response);
     } catch (error) {
       setError(error.message);
     }
