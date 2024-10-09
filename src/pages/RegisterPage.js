@@ -10,12 +10,14 @@ const RegisterPage = () => {
   const [secPassword, setSecPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       if (password !== secPassword) {
         throw new Error("비밀번호가 일치하지 않습니다! 다시 입력해주세요!");
       }
+      const response = await api.post("/user", { name, email, password });
+      console.log("response: ", response);
     } catch (error) {
       setError(error.message);
     }
