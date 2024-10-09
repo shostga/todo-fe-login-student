@@ -16,6 +16,7 @@ const TodoPage = () => {
   useEffect(() => {
     getTasks();
   }, []);
+
   const addTodo = async () => {
     try {
       const response = await api.post("/tasks", {
