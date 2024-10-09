@@ -23,7 +23,7 @@ const RegisterPage = () => {
 
   return (
     <div className="display-center">
-      {error && <div>{error}</div>}
+      {error && <div className="red-error">{error}</div>}
       <Form className="login-box" onSubmit={handleSubmit}>
         <h1>회원가입</h1>
         <Form.Group className="mb-3" controlId="formName">
