@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import api from "../utils/api";
@@ -9,6 +10,7 @@ const RegisterPage = () => {
   const [password, setPassword] = useState("");
   const [secPassword, setSecPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -17,7 +19,12 @@ const RegisterPage = () => {
         throw new Error("비밀번호가 일치하지 않습니다! 다시 입력해주세요!");
       }
       const response = await api.post("/user", { email, name, password });
-      console.log("myRResponse: ", response);
+      // console.log("myRResponse: ", response);
+      if (response.status === 200) {
+        navigate("/login");
+      } else {
+        throw new Error(response.data.error);
+      }
     } catch (error) {
       setError(error.message);
     }
