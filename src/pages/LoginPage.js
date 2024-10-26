@@ -13,7 +13,7 @@ const LoginPage = () => {
     event.preventDefault();
     try {
       const response = await api.post("/user/login", { email, password });
-      console.log("rrrrrr: ", response);
+      console.log("todo-fe-login-student's LoginPage response: ", response);
     } catch (error) {}
   };
 

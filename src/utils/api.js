@@ -13,22 +13,22 @@ const api = axios.create({
  */
 api.interceptors.request.use(
   (request) => {
-    console.log("Starting Request", request);
+    console.log("todo-fe-login-student's api Starting Request", request);
     return request;
   },
   function (error) {
-    console.log("REQUEST ERROR", error);
+    console.log("todo-fe-login-student's api REQUEST ERROR", error);
   }
 );
 
 api.interceptors.response.use(
   (response) => {
-    console.log("Response:", response);
+    console.log("todo-fe-login-student's api Response:", response);
     return response;
   },
   function (error) {
     error = error.response.data;
-    console.log("RESPONSE ERROR", error);
+    console.log("todo-fe-login-student's api RESPONSE ERROR", error);
     return Promise.reject(error);
   }
 );
