@@ -9,6 +9,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [user, setUser] = useState(null);
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -16,6 +17,8 @@ const LoginPage = () => {
       const response = await api.post("/user/login", { email, password });
       // console.log("todo-fe-login-student's LoginPage response: ", response);
       if (response.status === 200) {
+        setUser(response.data.user);
+        sessionStorage.setItem("toekn", response.data.token);
       }
       throw new Error(response.message);
     } catch (error) {
