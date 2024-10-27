@@ -20,7 +20,7 @@ const LoginPage = () => {
       // console.log("todo-fe-login-student's LoginPage response: ", response);
       if (response.status === 200) {
         setUser(response.data.user);
-        sessionStorage.setItem("toekn", response.data.token);
+        sessionStorage.setItem("token", response.data.token);
         api.defaults.headers["authorization"] = "Bearer " + response.data.token;
         setError("");
         navigate("/");
